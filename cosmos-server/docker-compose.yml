@@ -1,0 +1,18 @@
+# place this where you want to keep the config file
+# WARNING: Cosmos Cloud sets up a database without allowing you to configure its volumes,
+#           so this setup will not be self-contained.
+
+version: '3.7'
+services:
+  cosmos-server:
+    image: azukaar/cosmos-server:latest
+    container_name: cosmos-server
+    hostname: cosmos-server
+    restart: always
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/rub/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+      - /:/mnt/host
+      - ./config:/config   # official docs place the config file at /var/lib/cosmos
+    network_mode: host
