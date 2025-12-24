@@ -5,6 +5,7 @@ WARNING: Does not work with docker-compose.
 
 - Run this using docker compose manually and only use Cosmos Cloud to point a URL at it (and manage it after initial creation).
 - Create the directories specified in the bind volumes *before* first-run.
+- Doesn't work with env files for some reason, so that was removed. (I think Cosmos would've screwed that up potentially anyhow.)
 
 ## Major Version Upgrades / Breaking Changes
 Check the official docs: https://docs.immich.app/install/upgrading/
