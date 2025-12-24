@@ -1,11 +1,5 @@
-#
-# WARNING: To install Immich, follow our guide: https://docs.immich.app/install/docker-compose
-#
-# Make sure to use the docker-compose.yml of the current release:
-#
-# https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
-#
-# The compose file on main may not be compatible with the latest release.
+# WARNING: Environment file doesn't work.
+# While not strictly necessary, you should change PASSWORD.
 
 volumes:
   UPLOAD_LOCATION:
@@ -13,37 +7,39 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      # WARNING: Immich wants you to specify this only in the ENV file, so change it there too as a precaution.
-      device: /path/on/host
+      device: /Volumes/Treat/Containers/immich/library
   DB_DATA_LOCATION:
     driver: local
     driver_opts:
       type: none
       o: bind
-      # WARNING: Immich wants you to specify this only in the ENV file, so change it there too as a precaution.
-      device: /path/on/host
+      device: /Volumes/Treat/Containers/immich/database
   model-cache:
     driver: local
     driver_opts:
       type: none
       o: bind
       # Immich doesn't want this stored locally for some reason.
-      device: /path/on/host
+      device: /Volumes/Treat/Containers/immich/model-cache
 
 name: immich
 
 services:
   immich-server:
     container_name: immich_server
-    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION}
+    image: ghcr.io/immich-app/immich-server:v2
     # extends:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
     volumes:
       - UPLOAD_LOCATION:/data
       - /etc/localtime:/etc/localtime:ro
-    env_file:
-      - immich.env
+    environment:
+      TZ: America/Denver
+      IMMICH_VERSION: v2
+      DB_PASSWORD: PASSWORD
+      DB_USERNAME: postgres
+      DB_DATABASE_NAME: immich
     ports:
       - '2283:2283'
     depends_on:
@@ -57,14 +53,15 @@ services:
     container_name: immich_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, rocm, openvino, rknn] to the image tag.
     # Example tag: ${IMMICH_VERSION:-release}-cuda
-    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
+    image: ghcr.io/immich-app/immich-machine-learning:v2
     # extends: # uncomment this section for hardware acceleration - see https://docs.immich.app/features/ml-hardware-acceleration
     #   file: hwaccel.ml.yml
     #   service: cpu # set to one of [armnn, cuda, rocm, openvino, openvino-wsl, rknn] for accelerated inference - use the `-wsl` version for WSL2 where applicable
     volumes:
       - model-cache:/cache
-    env_file:
-      - immich.env
+    environment:
+      TZ: America/Denver
+      IMMICH_VERSION: v2
     restart: always
     healthcheck:
       disable: false
@@ -80,15 +77,12 @@ services:
     container_name: immich_postgres
     image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
     environment:
-      # These are all specified in the environment file.
-      # POSTGRES_PASSWORD: ${DB_PASSWORD}
-      # POSTGRES_USER: ${DB_USERNAME}
-      # POSTGRES_DB: ${DB_DATABASE_NAME}
+      POSTGRES_PASSWORD: PASSWORD
+      POSTGRES_USER: postgres
+      POSTGRES_DB: immich
       POSTGRES_INITDB_ARGS: '--data-checksums'
       # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
       # DB_STORAGE_TYPE: 'HDD'
-    env_file:
-      - immich.env
     volumes:
       - DB_DATA_LOCATION:/var/lib/postgresql/data
     shm_size: 128mb
