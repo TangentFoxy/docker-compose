@@ -6,3 +6,5 @@ Modified from official instructions: https://docs.joinpeertube.org/install/docke
 3. Create the volume directories needed: config, data, opendkim, postgres, redis
 4. Launch from CLI docker compose.
 5. Search logs for "User password" (near the end) to find the generated password for the root account.
+
+Be careful setting up the instance initially. It's not as easy as it seems.
