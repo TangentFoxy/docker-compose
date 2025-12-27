@@ -1,0 +1,53 @@
+# NOTE: Vikunja defaults to user 1000.
+
+volumes:
+  files:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/vikunja/files
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/vikunja/db
+
+services:
+  vikunja:
+    image: vikunja/vikunja
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: https://DOMAIN
+      VIKUNJA_DATABASE_HOST: db
+      VIKUNJA_DATABASE_PASSWORD: PASSWORD
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_USER: vikunja
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_SERVICE_JWTSECRET: RANDOM_SECRET
+      VIKUNJA_REDIS_ENABLED: 1
+      VIKUNJA_REDIS_HOST: 'redis:6379'
+      VIKUNJA_CACHE_ENABLED: 1
+      VIKUNJA_CACHE_TYPE: redis
+    ports:
+      - 3456:3456
+    volumes:
+      - files:/app/vikunja/files
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_PASSWORD: PASSWORD
+      POSTGRES_USER: vikunja
+    volumes:
+      - db:/var/lib/postgresql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -U $$POSTGRES_USER"]
+      interval: 2s
+      start_period: 30s
+  redis:
+    image: redis
