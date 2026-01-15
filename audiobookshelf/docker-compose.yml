@@ -1,0 +1,39 @@
+volumes:
+  audiobooks:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/audiobookshelf/audiobooks
+  podcasts:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/audiobookshelf/podcasts
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/audiobookshelf/config
+  metadata:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/audiobookshelf/metadata
+
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    # ports:
+    #   - 13378:80
+    volumes:
+      - audiobooks:/audiobooks
+      - podcasts:/podcasts
+      - config:/config
+      - metadata:/metadata
+    environment:
+      - TZ=America/Denver
+    restart: unless-stopped
