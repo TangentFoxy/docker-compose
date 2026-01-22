@@ -1,0 +1,42 @@
+# todo LONG_SECRET_KEY needs to be replaced, and URLS set to your access url
+
+volumes:
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/yamtrack/db
+  redis_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/yamtrack/redis_data
+
+services:
+  yamtrack:
+    container_name: yamtrack
+    image: ghcr.io/fuzzygrim/yamtrack
+    restart: unless-stopped
+    depends_on:
+      - redis
+    environment:
+      - TZ=America/Denver
+      - SECRET=LONG_SECRET_KEY
+      - REDIS_URL=redis://redis:6379
+      - URLS=https://yamtrack.tangentfox.com
+      - TMDB_NSFW=True
+      - MAL_NSFW=True
+      - IGDB_NSFW=True
+    volumes:
+      - db:/yamtrack/db
+    # ports:
+    #   - "8000:8000"
+
+  redis:
+    container_name: yamtrack-redis
+    image: redis:8-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
