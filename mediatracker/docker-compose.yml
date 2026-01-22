@@ -1,0 +1,29 @@
+volumes:
+  storage:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/mediatracker/storage
+  assets:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/mediatracker/assets
+
+# version: "3"
+services:
+  mediatracker:
+    container_name: mediatracker
+    # ports:
+    #   - 7481:7481
+    volumes:
+      - storage:/storage
+      - assets:/assets
+    environment:
+      SERVER_LANG: en
+      TMDB_LANG: en
+      AUDIBLE_LANG: us
+      TZ: America/Denver
+    image: bonukai/mediatracker:latest
