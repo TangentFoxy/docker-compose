@@ -8,31 +8,31 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Volumes/Treat/Containers/peertube/config
+      device: /mnt/apple/peertube/config
   data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Volumes/Treat/Containers/peertube/data
+      device: /mnt/apple/peertube/data
   opendkim:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Volumes/Treat/Containers/peertube/opendkim
+      device: /mnt/apple/peertube/opendkim
   postgres:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Volumes/Treat/Containers/peertube/postgres
+      device: /mnt/apple/peertube/postgres
   redis:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Volumes/Treat/Containers/peertube/redis
+      device: /mnt/apple/peertube/redis
 
 services:
   peertube:
