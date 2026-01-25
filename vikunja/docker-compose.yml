@@ -29,8 +29,8 @@ services:
       VIKUNJA_REDIS_HOST: 'redis:6379'
       VIKUNJA_CACHE_ENABLED: 1
       VIKUNJA_CACHE_TYPE: redis
-    ports:
-      - 3456:3456
+    # ports:
+    #   - 3456:3456
     volumes:
       - files:/app/vikunja/files
     depends_on:

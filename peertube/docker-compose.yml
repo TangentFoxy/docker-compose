@@ -1,6 +1,6 @@
-# TODO change volumes to match local path(s)
-# TODO change environment variables, make sure all instances match
-# TODO To generate PeerTube secret, run: openssl rand -hex 32
+# TODO set volume directories
+# TODO change ALL_CAPS environment variables in all locations
+#      For PEERTUBE_SECRET, run : openssl rand -hex 32
 
 volumes:
   config:
@@ -64,9 +64,9 @@ services:
       PEERTUBE_SMTP_TLS: false
       PEERTUBE_SMTP_DISABLE_STARTTLS: false
       PEERTUBE_ADMIN_EMAIL: EMAIL_ADDRESS
-    ports:
-      - "1935:1935" # Comment if you don't want to use the live feature
-      - "9000:9000" # Uncomment if you use another webserver/proxy or test PeerTube in local, otherwise not suitable for production
+    # ports:
+    #   - "1935:1935" # Comment if you don't want to use the live feature
+    #   - "9000:9000" # Uncomment if you use another webserver/proxy or test PeerTube in local, otherwise not suitable for production
     volumes:
       - data:/data
       - config:/config

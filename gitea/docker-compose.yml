@@ -1,5 +1,5 @@
-# todo change data path
-# todo change user and group IDs
+# TODO set volume directories
+# TODO set user/group IDs
 
 version: "3"
 

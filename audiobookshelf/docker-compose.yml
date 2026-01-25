@@ -1,3 +1,6 @@
+# TODO set volume directories
+# TODO set timezone (TZ)
+
 volumes:
   audiobooks:
     driver: local
