@@ -1,5 +1,7 @@
 # Vikunja
-**WARNING**: This software is brand new and cannot handle a power failure. I'm probably going to stop using it because of that. I don't want to have to manually recover everything any time there is an uncontrollable issue like this.
+**WARNING**: After a power failure, permissions were reset on the volume this
+app was using, causing it to fail. I have no idea how that occurred. Permissions
+must be user/group 1000 for this to function.
 
 1. [What to backup](https://vikunja.io/docs/what-to-backup/)
 2. [Configuration options](https://vikunja.io/docs/config-options/)

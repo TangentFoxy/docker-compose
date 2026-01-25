@@ -1,6 +1,10 @@
 # TODO set volume directories
 # TODO set timezone (TZ)
 
+# WARNING Audiobookshelf takes an extremely long time to be ready for
+#   connections, with no indication of when it will be ready. You will get
+#   continuous 502 Bad Gateway errors until it resolves.
+
 volumes:
   audiobooks:
     driver: local
