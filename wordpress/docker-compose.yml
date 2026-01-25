@@ -1,0 +1,42 @@
+# TODO set volume directories
+# TODO change ALL_CAPS environment variables in all locations
+
+volumes:
+  html:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/blog/html
+  mysql:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/blog/mysql
+
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    # ports:
+    #   - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: YOUR_PASSWORD
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - html:/var/www/html
+
+  db:
+    container_name: db
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: YOUR_PASSWORD
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - mysql:/var/lib/mysql
