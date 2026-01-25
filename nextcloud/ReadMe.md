@@ -6,3 +6,7 @@ not actually all-in-one but it makes things confusing. :D
 The only way I could get this working when I first started using Cosmos as a
 reverse proxy was to use the CasaOS compose, so this is modified from that:
 https://azukaar.github.io/cosmos-casaos-store/servapps/Nextcloud/docker-compose.yml
+
+---
+
+Apparently, I should be using the instructions from https://hub.docker.com/_/nextcloud/
