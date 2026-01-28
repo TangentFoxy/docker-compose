@@ -1,0 +1,39 @@
+volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/jelu/config
+  database:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/jelu/database
+  images:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/jelu/images
+  imports:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/apple/jelu/imports
+
+services:
+  jelu:
+    image: wabayang/jelu
+    container_name: jelu
+    volumes:
+      - config:/config
+      - database:/database
+      - images:/files/images
+      - imports:/files/imports
+      - /etc/timezone:/etc/timezone:ro
+    # ports:
+    #   - 11111:11111
+    restart: unless-stopped
