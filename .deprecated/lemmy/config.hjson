@@ -1,0 +1,23 @@
+# TODO: Replace YOUR_POSTGRES_PASSWORD and YOUR_DOMAIN
+
+{
+  # for more info about the config, check out the documentation
+  # https://join-lemmy.org/docs/en/administration/configuration.html
+
+  database: {
+    host: postgres
+    password: "YOUR_POSTGRES_PASSWORD"
+    # Alternative way:
+    #uri: "postgresql://lemmy:YOUR_POSTGRES_PASSWORD@postgres/lemmy"
+  }
+  hostname: "YOUR_DOMAIN"
+  pictrs: {
+    url: "http://pictrs:8080/"
+    api_key: "YOUR_POSTGRES_PASSWORD"
+  }
+  email: {
+    smtp_server: "postfix:25"
+    smtp_from_address: "noreply@YOUR_DOMAIN"
+    tls_type: "none"
+  }
+}
