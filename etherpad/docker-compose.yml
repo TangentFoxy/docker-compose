@@ -31,7 +31,8 @@ services:
       - postgres
     environment:
       NODE_ENV: production
-      ADMIN_PASSWORD: DOCKER_COMPOSE_APP_ADMIN_PASSWORD
+      # not necessary to initially define
+      # ADMIN_PASSWORD: DOCKER_COMPOSE_APP_ADMIN_PASSWORD
       DB_CHARSET: utf8mb4
       DB_HOST: postgres
       DB_NAME: etherpad
