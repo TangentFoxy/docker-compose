@@ -1,0 +1,26 @@
+volumes:
+  LUANTI_SERVER:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Volumes/Treat/Containers/luanti-server/server
+
+name: luanti-server
+
+services:
+  luanti-server:
+    container_name: luanti_server
+    image: lscr.io/linuxserver/luanti:5.15.2
+    restart: always
+    # networks:
+    #   - default
+    environment:
+      - TZ=America/Denver
+      # do not use --terminal or --server
+      - "CLI_ARGS=--gameid minetest"
+    volumes:
+      - LUANTI_SERVER:/config/.minetest
+    ports:
+      - "30000:30000/udp"
+      - "127.0.0.1:30000:30000/tcp"
