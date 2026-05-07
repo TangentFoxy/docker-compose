@@ -17,3 +17,11 @@ and `/revokeme creative` if you don't want creative mode.
 
 Worlds cannot start with a number or have spaces in their name,
 and can only be selected by path for some reason.
+
+## Schematics
+Assuming WorldEdit is installed, you can move things between worlds using schematics:
+1. Select corners of a volume by standing where you want them and running `//pos1` and `//pos2`.
+   The selection box will be at your feet.
+2. Save schematics with `//mtschemcreate SCHEMATIC_NAME`.
+3. Schematics are placed in a world's `schems` directory. Copy them and rename them as necessary.
+4. Use `//pos1` to select a start point, and `//mtschemplace SCHEMATIC_NAME` to place it.
