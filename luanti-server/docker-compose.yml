@@ -1,3 +1,8 @@
+# TODO set volume directories
+# TODO change ALL_CAPS environment variables in all locations
+#       (this is just WORLD_NAME here - it CANNOT have special characters or spaces, and must not start with a number)
+# Normally, I use external management to open up ports, but the definitions here are necessary.
+
 volumes:
   LUANTI_SERVER:
     driver: local
@@ -17,8 +22,8 @@ services:
     #   - default
     environment:
       - TZ=America/Denver
-      # do not use --terminal or --server
-      - "CLI_ARGS=--gameid minetest"
+      # do not use --terminal or --server or --worldname
+      - "CLI_ARGS=--gameid minetest --world /config/.minetest/worlds/WORLD_NAME"
     volumes:
       - LUANTI_SERVER:/config/.minetest
     ports:
