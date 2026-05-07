@@ -8,6 +8,4 @@ this work (originally [from here](https://github.com/TangentFoxy/pressbooks-comp
 
 I briefly tried [the version from awesome-docker-compose](https://github.com/docker/awesome-compose/blob/master/wordpress-mysql/compose.yaml),
 but it doesn't support the ability to make basic edits to a Wordpress install,
-yikes!
-
-(It also used a bad method for setting the database root password. D:)
+yikes! (It also used a bad method for setting the database root password. D:)
