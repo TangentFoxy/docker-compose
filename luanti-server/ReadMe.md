@@ -25,3 +25,8 @@ Assuming WorldEdit is installed, you can move things between worlds using schema
 2. Save schematics with `//mtschemcreate SCHEMATIC_NAME`.
 3. Schematics are placed in a world's `schems` directory. Copy them and rename them as necessary.
 4. Use `//pos1` to select a start point, and `//mtschemplace SCHEMATIC_NAME` to place it.
+
+## Unsafe Chainsaw
+The `technic` mod's chainsaw by default protects you from destroying player-built structures,
+but this also prevents several mods' trees from being cut by it. This can be changed by disabling its safety check:
+`technic_safe_chainsaw = false`
