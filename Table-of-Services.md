@@ -1,4 +1,14 @@
-This file is updated in my Obsidian vault, and then exported to `tangent/docker-compose` on my Gitea server.
+---
+aliases:
+  - Selfhosted Services
+of:
+  - "[[Archives]]"
+share_link: https://share.note.sx/pe1hu5ka
+share_updated: 2026-07-27T18:54:54-06:00
+---
+
+# Selfhosted Services
+This file is updated in my Obsidian vault, and then exported to [`tangent/docker-compose`](https://gitea.tangentfox.com/tangent/docker-compose/src/branch/main/Table-of-Services.md) on my Gitea server.
 So, me, reading this, UPDATE IT THERE.
 
 | Service               | In-Use                                   | Purpose                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -8,6 +18,8 @@ So, me, reading this, UPDATE IT THERE.
 | cosmos-server         | ✅ https://cosmos.tangentfox.com/         | Supposed to be an all-in-one selfhosting management system. I use it as a GUI for reverse proxying and monitoring my services. In fact, I run everything *outside* of it first, and keep compose files around to not rely on it solely.                                                                                                                                                              |
 | gitea                 | ✅ https://gitea.tangentfox.com/          | Very fast and small footprint git-based code server. I use this to sync data & share code. Managing many users would be difficult, so sadly I have to keep this locked down.                                                                                                                                                                                                                         |
 | immich                | ✅ https://immich.tangentfox.com/         | A full replacement for Google Photos, with nearly the same feature set at the same quality, but much safer. Unfortunately, only meant to be used with a small pool of trusted users by design and ballooning costs to run a larger system, so this is family-only.                                                                                                                                   |
+| jelu                  | 🛑                                       | Jelu is supposed to be a reading tracker, but its import features don't work at all.                                                                                                                                                                                                                                                                                                                 |
+| lemmy                 | 🛑                                       | Lemmy has very outdated and misleading docs. When you set it up, it tries to serve an API and the UI in the same place with different services, which causes it to 404 itself silently. Nothing explains how to fix this, so it's impossible unless you're using the whole machine.                                                                                                                  |
 | mediatracker          | 🛑                                       | I was looking for a way to track *all* media consumption. Unfortunately, this app didn't save its data according to its instructions, so I abandoned it. It also didn't have a method for adding custom entries or editing metadata, so you are beholden to databases centralized managed. 😬                                                                                                        |
 | miniflux              | ✅ https://miniflux.tangentfox.com/       | A minimal and privacy-protecting feed reader. Unfortunately, not the most stable or compatible (largely due to companies making subscriptions less accessible). Family-only. May not survive power failure. :\\                                                                                                                                                                                      |
 | nextcloud             | ✅ https://nextcloud.tangentfox.com/      | Private cloud storage. I use it for me only because I cannot make my server reliable enough to be trusted with others' data, nor do I have adequate space. NextCloud has an extreme ability to be customized and extended, but I only use this for spreadsheets. It's worth trying to use, but has some problems with stability when you start extending it a lot. Support can be difficult as well. |
