@@ -17,7 +17,7 @@ networks:
 
 services:
   server:
-    image: docker.gitea.com/gitea:nightly
+    image: docker.gitea.com/gitea:latest
     container_name: gitea
     environment:
       - USER_UID=1002
