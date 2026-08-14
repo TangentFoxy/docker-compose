@@ -10,6 +10,11 @@ Most of these are designed to be run behind a reverse proxy, and I use Cosmos
 for this. As a result, I often comment out `ports` declarations. Initial setup
 should probably be shielded by the reverse proxy login.
 
+## Usage
+1. Put the `docker-compose.yml` file where you want data to live.
+2. Edit the file to set correct information based on the TODOs at the top.
+3. **Run `docker-compose up -d` before using any form of GUI.** (If this step is skipped, volumes will *not* be set up correctly and you have to start over.)
+
 ## Named bind mounts
 Managing volumes that need to be shared within a config is easier if you can use names with bind mounts:
 ```
