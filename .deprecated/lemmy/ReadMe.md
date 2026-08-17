@@ -1,4 +1,6 @@
 # Lemmy
+A federated reddit-style board.
+
 This is like my 3rd attempt to make Lemmy do anything, but it is fundamentally
 unable to run alongside other apps for no reason? I don't know.
 
