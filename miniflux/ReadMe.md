@@ -1,4 +1,6 @@
 # Miniflux
+**WARNING**: Cannot handle power failure.
+
 Modified from [official instructions](https://miniflux.app/docs/docker.html).
 
 ~~I commented out the stuff to create the initial user because I'm running this
