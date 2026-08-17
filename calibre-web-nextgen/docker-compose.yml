@@ -30,7 +30,7 @@ volumes:
 
 services:
   calibre-web-automated:
-    image: ghcr.io/new-usemame/calibre-web-nextgen:latest
+    image: ghcr.io/new-usemame/calibre-web-nextgen:v4.1.37
     container_name: calibre-web-nextgen
     environment:
       # Only change these if you know what you're doing
