@@ -1,4 +1,7 @@
 # Wordpress
+This instance will be replaced with custom blog hosting software, as I'm sick
+of all the terrible decisions and bad security of Wordpress.
+
 This instance has a long history, as I've migrated my blog several times. As a
 result of previously not keeping records, I've lost some of the history of how
 it got here.
