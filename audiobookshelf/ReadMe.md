@@ -11,6 +11,9 @@ database, and **its default behavior when this occurs is to delete every file it
 doesn't recognize**. Thankfully, I had backups, but I have to set up all of the
 metadata around this all over again now.
 
+**WARNING**: Audiobookshelf doesn't clean up after itself, so when you modify
+or remove items, it will bloat over time. I should replace it.
+
 ## Setup
 During initial setup, you will be asked to create a library. I just call it
 "Books", use `/audiobooks` for the path, and leave everything else at default.
