@@ -40,3 +40,8 @@ I place these at the top of compose files for different changes that need to be 
 1. Note where I got the original compose file or documentation.
 2. Add instructions.
 3. End with notes about complications or issues I ran into.
+
+## Tasks
+- [ ] figure out requirements to config a cosmos database so that its config
+      can have one specified here instead of being stuck on the host machine
+- [ ] Update EtherPad, use it, make sure it works, update table
