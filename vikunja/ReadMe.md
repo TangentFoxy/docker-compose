@@ -1,5 +1,6 @@
 # Vikunja
-**WARNING**: Cannot handle a power failure.
+**WARNING**: Inconsistent around power failures. Sometimes it comes right back,
+sometimes it breaks until restarted several times.
 
 1. [What to backup](https://vikunja.io/docs/what-to-backup/)
 2. [Configuration options](https://vikunja.io/docs/config-options/)
