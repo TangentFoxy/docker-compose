@@ -45,3 +45,5 @@ I place these at the top of compose files for different changes that need to be 
 - [ ] figure out requirements to config a cosmos database so that its config
       can have one specified here instead of being stuck on the host machine
 - [ ] Update EtherPad, use it, make sure it works, update table
+- [ ] Move `calibre-web-nextgen` to deprecated..
+  - [ ] Rename `.deprecated` to `+deprecated`
