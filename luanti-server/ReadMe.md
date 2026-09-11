@@ -11,6 +11,9 @@ secure.http_mods = digistuff   # optional feature
 enable_tnt = true              # only if you want TNT (some mods require this)
 ```
 
+Don't forget to actually install a game before trying to run.
+The provided config assumes you are playing `minetest`.
+
 Note that admin rights are not the same as in-game permissions,
 you still need to use `/grantme all` to get all permissions,
 and `/revokeme creative` if you don't want creative mode.
