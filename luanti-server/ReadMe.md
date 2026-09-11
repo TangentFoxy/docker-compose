@@ -8,7 +8,7 @@ may need some changes after it is generated to better support starting your serv
 ```
 name = admin                   # Sign up as this user name to have admin rights.
 secure.http_mods = digistuff   # optional feature
-enable_tnt = true
+enable_tnt = true              # only if you want TNT (some mods require this)
 ```
 
 Note that admin rights are not the same as in-game permissions,
