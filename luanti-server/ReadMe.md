@@ -7,8 +7,8 @@ may need some changes after it is generated to better support starting your serv
 
 ```
 name = admin                   # Sign up as this user name to have admin rights.
-secure.http_mods = digistuff   # optional feature
 enable_tnt = true              # only if you want TNT (some mods require this)
+secure.http_mods = digistuff   # optional feature
 ```
 
 Don't forget to actually install a game before trying to run.
