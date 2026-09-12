@@ -1,6 +1,7 @@
 # TODO set volume directories
 # TODO change ALL_CAPS environment variables in all locations
-#       (this is just WORLD_NAME here - it CANNOT have special characters or spaces, and must not start with a number)
+#       WORLD_NAME cannot have special characters or spaces, and must not start with a number
+
 # Normally, I use external management to open up ports, but the definitions here are necessary.
 
 volumes:
@@ -11,12 +12,10 @@ volumes:
       o: bind
       device: /Volumes/Treat/Containers/luanti-server/server
 
-name: luanti-server
-
 services:
-  luanti-server:
+  luanti_server:
     container_name: luanti_server
-    image: lscr.io/linuxserver/luanti:5.15.2
+    image: lscr.io/linuxserver/luanti:5.16.1
     restart: always
     # networks:
     #   - default
@@ -24,6 +23,8 @@ services:
       - TZ=America/Denver
       # do not use --terminal or --server or --worldname
       - "CLI_ARGS=--gameid minetest --world /config/.minetest/worlds/WORLD_NAME"
+      - PUID=1000
+      - PGID=1000
     volumes:
       - LUANTI_SERVER:/config/.minetest
     ports:
